@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: last-backend
+  labels:
+    app: last-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: last-backend
+  template:
+    metadata:
+      labels:
+        app: last-backend
+    spec:
+      containers:
+        - name: last-backend
+          image: rukurok/last-backend:latest
+          ports:
+            - containerPort: 8080
